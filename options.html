@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PIT Abuse Reporter – Settings</title>
+<style>
+    body {
+        font-family: sans-serif;
+        margin: 20px;
+        max-width: 720px;
+        line-height: 1.5;
+    }
+    h1 {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+    h2 {
+        font-size: 16px;
+        margin-top: 28px;
+        margin-bottom: 8px;
+    }
+    .section {
+        margin-bottom: 18px;
+    }
+    .checkbox-row {
+        margin-top: 10px;
+        padding: 12px;
+        background: #f5f5f5;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+    }
+</style>
+</head>
+<body>
+
+<h1>PIT Abuse Reporter – Settings</h1>
+
+<div class="section">
+    <h2>How the addon finds the correct abuse address</h2>
+    <p>
+        When reporting unsolicited email, it is important to send the report to the correct 
+        abuse contact of the sender's domain. Many domains publish this information using 
+        modern email security standards.
+    </p>
+</div>
+
+<div class="section">
+    <h2>About DMARC</h2>
+    <p>
+        DMARC is a technology used to specify how email from a domain should be authenticated. 
+        One of its functions is to publish an official reporting address where email issues 
+        or possible abuse can be reported.
+    </p>
+
+    <p>
+        This address is stored in a special DNS record named <code>_dmarc.example.com</code>.
+        A typical DMARC record may contain:
+    </p>
+
+    <pre style="background:#f7f7f7; padding:10px; border-radius:4px;">
+v=DMARC1; p=none; rua=mailto:abuse@example.com
+    </pre>
+
+    <p>
+        The addon can read this record and automatically use the reporting address declared 
+        by the domain owner.
+    </p>
+</div>
+
+<div class="section">
+    <h2>Fallback: generic abuse@domain</h2>
+    <p>
+        Some domains do not publish a DMARC reporting address. In this case, the addon will 
+        use the traditional fallback:
+    </p>
+
+    <pre style="background:#f7f7f7; padding:10px; border-radius:4px;">
+abuse@example.com
+    </pre>
+
+    <p>
+        If you prefer, you may disable DMARC detection entirely and always use this generic 
+        address.
+    </p>
+</div>
+
+<div class="checkbox-row">
+    <label style="cursor: pointer;">
+        <input type="checkbox" id="useDMARC">
+        <strong>Automatically find the official abuse address</strong>
+        <br>
+        <span style="font-size: 12px; color:#444;">
+            When enabled, the addon will check the sender's domain for an official DMARC reporting
+            address. If none is available, it will fall back to the generic abuse@domain address.
+        </span>
+    </label>
+</div>
+
+<script src="options.js"></script>
+</body>
+</html>

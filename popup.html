@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PIT Abuse Reporter</title>
+<style>
+body {
+    font-family: sans-serif;
+    margin: 12px;
+    width: 220px;
+}
+h1 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+button {
+    padding: 6px 14px;
+    font-size: 14px;
+    margin-right: 8px;
+}
+.btnRow {
+    margin-top: 16px;
+}
+</style>
+</head>
+<body>
+
+<h1>
+    <img src="icon32.png" width="20" height="20">
+    Abuse Report
+</h1>
+
+<p>Send abuse report?</p>
+
+<p style="margin-top: 12px;">
+    <label style="cursor: pointer;">
+        <input type="checkbox" id="useDMARC">
+        <span style="font-size: 11px;">
+            Automatically find the correct abuse address (recommended)
+        </span>
+    </label>
+
+    <span 
+        style="cursor: help; margin-left: 6px; vertical-align: middle; font-size: 14px;"
+        title="If enabled, the addon checks the sender's domain for its official abuse reporting address. If disabled, it sends the report to a generic abuse@domain address.">
+        ℹ️
+    </span>
+</p>
+
+
+<div class="btnRow">
+    <button id="send">Send</button>
+    <button id="cancel">Cancel</button>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
