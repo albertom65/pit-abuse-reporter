@@ -24,7 +24,7 @@ The add-on extracts the sender’s domain, looks for an official abuse reporting
 
 ## 🖼 Screenshot
 
-![Popup](src/screenshot.png)
+![Popup](screenshot.png)
 
 ---
 
